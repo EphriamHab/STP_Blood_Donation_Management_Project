@@ -1,0 +1,23 @@
+
+<project name="BloodDonationManagementSystem" default="jar">
+  <property name="src.dir" value="src"/>
+  <property name="build.dir" value="build"/>
+  <property name="dist.dir" value="dist"/>
+  <property name="jar.file" value="BloodDonationManagementSystem.jar"/>
+  <target name="compile">
+    <mkdir dir="${build.dir}"/>
+    <javac srcdir="${src.dir}" destdir="${build.dir}"/>
+  </target>
+  <target name="jar" depends="compile">
+    <mkdir dir="${dist.dir}"/>
+    <jar destfile="${dist.dir}/${jar.file}" basedir="${build.dir}">
+      <manifest>
+        <attribute name="Main-Class" value="packAll.Main"/>
+      </manifest>
+    </jar>
+  </target>
+  <target name="clean">
+    <delete dir="${build.dir}"/>
+    <delete dir="${dist.dir}"/>
+  </target>
+</project>
